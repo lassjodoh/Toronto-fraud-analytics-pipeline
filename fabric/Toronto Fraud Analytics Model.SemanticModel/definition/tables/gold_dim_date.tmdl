@@ -1,0 +1,98 @@
+table gold_dim_date
+	lineageTag: 27f45faf-1a55-47ff-bfe8-eaf5cd45134e
+	sourceLineageTag: [dbo].[gold_dim_date]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 20b77eee-cea2-45b3-a827-ce1148a138b0
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 55aab8aa-feab-4989-8886-0927d4ee4025
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 239f9a36-b783-4a88-9c3f-7dc220547dd5
+		sourceLineageTag: year
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: d88f4aa1-6369-455d-b902-a32480c0deb6
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 85c90ae7-a3af-4f54-a3dc-18cb400a8ab0
+		sourceLineageTag: month_number
+		summarizeBy: none
+		sourceColumn: month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 8a173016-0490-463f-95e1-472032eedf7c
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: f00b8be3-12ba-4bfe-8032-5e5fc7b2f6d6
+		sourceLineageTag: day
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: 5efebe33-dabd-4395-9314-bfefb4157d75
+		sourceLineageTag: day_name
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: int64
+		formatString: 0
+		lineageTag: 98103173-722e-438b-851e-ae1f69644e70
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_date = entity
+		mode: directLake
+		source
+			entityName: gold_dim_date
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+

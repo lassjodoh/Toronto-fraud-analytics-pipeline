@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Toronto Fraud Analytics Model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "55ec4df7-9939-84a1-4c82-ebd1e88937e7"
+  }
+}

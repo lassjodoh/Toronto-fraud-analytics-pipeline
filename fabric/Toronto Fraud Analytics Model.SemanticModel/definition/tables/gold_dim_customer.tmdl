@@ -1,0 +1,87 @@
+table gold_dim_customer
+	lineageTag: b1ba1aec-3b95-49c6-9748-63e8687f3b3b
+	sourceLineageTag: [dbo].[gold_dim_customer]
+
+	column customer_id
+		dataType: string
+		lineageTag: 0c4baa79-b373-444c-8fa7-d3cc2097e266
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: e95f6f2e-83b6-4982-b3a0-096c4bbe98d9
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_since_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab4c9a9c-4ee3-4e3c-a466-dc0c80c485ce
+		sourceLineageTag: customer_since_date
+		summarizeBy: none
+		sourceColumn: customer_since_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column spending_profile
+		dataType: string
+		lineageTag: 540d9f7e-1408-4faf-b9c3-ae81685f750d
+		sourceLineageTag: spending_profile
+		summarizeBy: none
+		sourceColumn: spending_profile
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_transaction_amount
+		dataType: double
+		lineageTag: 62710871-f217-478e-a2fe-b65714c9843b
+		sourceLineageTag: avg_transaction_amount
+		summarizeBy: none
+		sourceColumn: avg_transaction_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column daily_limit
+		dataType: int64
+		formatString: 0
+		lineageTag: 19b8d8be-cf66-445f-a718-caa7231270b5
+		sourceLineageTag: daily_limit
+		summarizeBy: none
+		sourceColumn: daily_limit
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_risk_level
+		dataType: string
+		lineageTag: 01b78a02-d012-4a39-8b63-d2bc554c9a26
+		sourceLineageTag: customer_risk_level
+		summarizeBy: none
+		sourceColumn: customer_risk_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c371d44e-f8ca-4339-b5df-bebd9a865e05
+		sourceLineageTag: customer_location_id
+		summarizeBy: none
+		sourceColumn: customer_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_customer = entity
+		mode: directLake
+		source
+			entityName: gold_dim_customer
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+

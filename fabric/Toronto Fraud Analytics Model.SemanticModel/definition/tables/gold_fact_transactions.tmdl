@@ -1,0 +1,162 @@
+table gold_fact_transactions
+	lineageTag: 28166f51-236b-4d75-b37b-a1dd48316a50
+	sourceLineageTag: [dbo].[gold_fact_transactions]
+
+	column transaction_id
+		dataType: string
+		lineageTag: 78c04764-1f20-42ab-9453-f6f1f5dcdc08
+		sourceLineageTag: transaction_id
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ef0fdbbb-edb0-426f-b80e-7a2debefdcb9
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 1901bf05-2daa-4ab4-b98c-a1557670ded2
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_id
+		dataType: string
+		lineageTag: 13b10e48-6444-45e6-9550-62fcd00a566e
+		sourceLineageTag: card_id
+		summarizeBy: none
+		sourceColumn: card_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_id
+		dataType: string
+		lineageTag: c4d4db80-ed74-43b7-84c4-6dfc20215c19
+		sourceLineageTag: merchant_id
+		summarizeBy: none
+		sourceColumn: merchant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 043b367c-212b-4897-9d20-85b08ae7919d
+		sourceLineageTag: transaction_location_id
+		summarizeBy: none
+		sourceColumn: transaction_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column batch_id
+		dataType: string
+		lineageTag: c2ccafad-6809-495e-a31b-45320bf24af4
+		sourceLineageTag: batch_id
+		summarizeBy: none
+		sourceColumn: batch_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7fac5bb3-aa77-4219-9346-5aa909adbe7d
+		sourceLineageTag: transaction_timestamp
+		summarizeBy: none
+		sourceColumn: transaction_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_amount
+		dataType: double
+		lineageTag: e46fb6b7-5697-48a0-802e-fb75fa134eb5
+		sourceLineageTag: transaction_amount
+		summarizeBy: sum
+		sourceColumn: transaction_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transaction_status
+		dataType: string
+		lineageTag: f5c666e6-82bd-446d-8610-7195b09b003e
+		sourceLineageTag: transaction_status
+		summarizeBy: none
+		sourceColumn: transaction_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column authorization_reason
+		dataType: string
+		lineageTag: 06915e11-6e9b-4c9d-b512-795188807826
+		sourceLineageTag: authorization_reason
+		summarizeBy: none
+		sourceColumn: authorization_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk_signal
+		dataType: string
+		lineageTag: b570d937-0f6e-45eb-9e21-29c9b7194c8a
+		sourceLineageTag: risk_signal
+		summarizeBy: none
+		sourceColumn: risk_signal
+
+		annotation SummarizationSetBy = Automatic
+
+	column fraud_scenario_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 57e1c0c6-81e0-4751-a57f-0d2e57fd1617
+		sourceLineageTag: fraud_scenario_flag
+		summarizeBy: sum
+		sourceColumn: fraud_scenario_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column fraud_scenario_type
+		dataType: string
+		lineageTag: fa4c148f-9288-488f-acb4-8547569f31a4
+		sourceLineageTag: fraud_scenario_type
+		summarizeBy: none
+		sourceColumn: fraud_scenario_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 35894c23-6d04-42f8-8ebe-bdf6c4b39c3f
+		sourceLineageTag: transaction_hour
+		summarizeBy: sum
+		sourceColumn: transaction_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column generated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 800fd1db-877d-4f90-a23e-c2d0bf911d97
+		sourceLineageTag: generated_at
+		summarizeBy: none
+		sourceColumn: generated_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_transactions = entity
+		mode: directLake
+		source
+			entityName: gold_fact_transactions
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+

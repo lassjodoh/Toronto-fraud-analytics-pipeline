@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "TorontoFraudLakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "74a7c644-7996-bd8c-46a4-0d1ba9b60b3b"
+  }
+}

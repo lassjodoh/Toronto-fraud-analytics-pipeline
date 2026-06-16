@@ -1,0 +1,127 @@
+table gold_dim_card
+	lineageTag: 4928300b-4ede-4949-bc98-97fb41188f70
+	sourceLineageTag: [dbo].[gold_dim_card]
+
+	measure 'Total Transactions' = COUNTROWS(gold_fact_transactions)
+		formatString: 0
+		lineageTag: eed21184-c213-4fd8-96d5-6871bd06fc28
+
+		changedProperty = Name
+
+	measure 'Total Amount' = SUM(gold_fact_transactions[transaction_amount])
+		lineageTag: 27d94d8e-0251-410c-923c-4eb032a40eeb
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Fraud Transactions' =
+			
+			CALCULATE(
+			    COUNTROWS(gold_fact_transactions),
+			    gold_fact_transactions[fraud_scenario_flag] = 1
+			)
+		formatString: 0
+		lineageTag: 62cad94d-73fe-41dc-a1c3-233ff6ba8832
+
+		changedProperty = Name
+
+	measure 'Fraud Rate' =
+			
+			DIVIDE([Fraud Transactions], [Total Transactions])
+		lineageTag: 1ddaae84-a515-4275-81e2-97db223bf3f5
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Transaction Amount' =
+			
+			AVERAGE(gold_fact_transactions[transaction_amount])
+		lineageTag: cf1ae1b7-419f-446a-9020-2535f622fbe1
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column card_id
+		dataType: string
+		lineageTag: bc523c02-b7c8-4b1b-a2fe-c67a70b1e9eb
+		sourceLineageTag: card_id
+		summarizeBy: none
+		sourceColumn: card_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: dded9471-5f6a-4c41-bf7a-86d2870af336
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_type
+		dataType: string
+		lineageTag: 080c7ea3-640b-4615-b704-0fdba28e9e5c
+		sourceLineageTag: card_type
+		summarizeBy: none
+		sourceColumn: card_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_network
+		dataType: string
+		lineageTag: 0accc728-2549-4584-9214-532fae6702b6
+		sourceLineageTag: card_network
+		summarizeBy: none
+		sourceColumn: card_network
+
+		annotation SummarizationSetBy = Automatic
+
+	column issue_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 97f01743-3604-49b1-94b2-a95ee5f7ed35
+		sourceLineageTag: issue_date
+		summarizeBy: none
+		sourceColumn: issue_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column expiry_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8c5bb04b-779a-4f33-999b-cae04ce10326
+		sourceLineageTag: expiry_date
+		summarizeBy: none
+		sourceColumn: expiry_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_status
+		dataType: string
+		lineageTag: 90ef9251-4905-45eb-a269-510af503518e
+		sourceLineageTag: card_status
+		summarizeBy: none
+		sourceColumn: card_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column card_limit
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e568dc9-e13c-4254-bfd1-97ed8d719f0e
+		sourceLineageTag: card_limit
+		summarizeBy: none
+		sourceColumn: card_limit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_card = entity
+		mode: directLake
+		source
+			entityName: gold_dim_card
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+

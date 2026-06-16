@@ -1,0 +1,20 @@
+relationship 63ab6c36-b17b-bfe7-bf04-fd16a00c6b3d
+	fromColumn: gold_fact_transactions.card_id
+	toColumn: gold_dim_card.card_id
+
+relationship 003f1c9f-b64c-9655-d757-aaff9337b6ab
+	fromColumn: gold_fact_transactions.customer_id
+	toColumn: gold_dim_customer.customer_id
+
+relationship c0ba486b-04ec-e8b7-fa61-bfb0f6fa12fc
+	fromColumn: gold_fact_transactions.merchant_id
+	toColumn: gold_dim_merchant.merchant_id
+
+relationship 96ed4516-3af9-0ca1-10c7-3f76030239cd
+	fromColumn: gold_fact_transactions.date_key
+	toColumn: gold_dim_date.date_key
+
+relationship c8933d5c-2893-bc1f-6dba-db30fa93eca5
+	fromColumn: gold_fact_transactions.transaction_location_id
+	toColumn: gold_dim_location.location_id
+

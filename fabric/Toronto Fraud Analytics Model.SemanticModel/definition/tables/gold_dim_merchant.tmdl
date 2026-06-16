@@ -1,0 +1,56 @@
+table gold_dim_merchant
+	lineageTag: 1bc20d15-c3ef-4ac9-80d8-c158be7f725f
+	sourceLineageTag: [dbo].[gold_dim_merchant]
+
+	column merchant_id
+		dataType: string
+		lineageTag: fd3b9afb-6e54-4932-879b-59ec2a9247cd
+		sourceLineageTag: merchant_id
+		summarizeBy: none
+		sourceColumn: merchant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_name
+		dataType: string
+		lineageTag: 2ae1ca03-1501-488e-8acc-58902f285d66
+		sourceLineageTag: merchant_name
+		summarizeBy: none
+		sourceColumn: merchant_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_category
+		dataType: string
+		lineageTag: bda6c3a9-ca12-4073-bb57-7ad6cdb65f45
+		sourceLineageTag: merchant_category
+		summarizeBy: none
+		sourceColumn: merchant_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_risk_level
+		dataType: string
+		lineageTag: 0a31f047-33fb-46e4-b259-644c2372dd9e
+		sourceLineageTag: merchant_risk_level
+		summarizeBy: none
+		sourceColumn: merchant_risk_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2362a9cf-e3c8-49ba-8a9b-d963fdcccff6
+		sourceLineageTag: merchant_location_id
+		summarizeBy: none
+		sourceColumn: merchant_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_merchant = entity
+		mode: directLake
+		source
+			entityName: gold_dim_merchant
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+

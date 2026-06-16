@@ -1,0 +1,51 @@
+table gold_dim_location
+	lineageTag: f054a234-6aaa-4287-adc8-affda1713e71
+	sourceLineageTag: [dbo].[gold_dim_location]
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f28f54f6-eed4-4859-9237-ca1f627d1e61
+		sourceLineageTag: location_id
+		summarizeBy: none
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 2eb060e6-9580-4fab-a251-963dbe681fa4
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: cee02552-727b-46a0-b9d7-b2a9017d9924
+		sourceLineageTag: latitude
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 97e21c59-f509-4366-a8cc-f12967176d3e
+		sourceLineageTag: longitude
+		summarizeBy: none
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_dim_location = entity
+		mode: directLake
+		source
+			entityName: gold_dim_location
+			expressionSource: 'DirectLake - TorontoFraudLakehouse'
+
