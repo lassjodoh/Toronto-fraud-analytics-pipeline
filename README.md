@@ -81,7 +81,7 @@ Power BI Dashboard
 
 ---
 
-![Workspace Overview](workspace_overview.png)
+![Workspace Overview](workspace_overview.PNG)
 
 # Solution Components
 
