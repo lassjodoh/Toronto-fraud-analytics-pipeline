@@ -497,6 +497,11 @@ Connect Power BI to the Fabric Semantic Model and review fraud analytics insight
 ## Author
 
 **Ojo Odoh**
+
+---
+
 Data Engineer | BI Developer | Microsoft Fabric Practitioner
 
 This project was developed to demonstrate modern data engineering principles including API ingestion, Medallion Architecture, Incremental Processing, Pipeline Orchestration, Semantic Modeling, and Business Intelligence reporting using Microsoft Fabric and Power BI.
+
+---
